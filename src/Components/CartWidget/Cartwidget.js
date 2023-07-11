@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { Badge } from "react-bootstrap";
 
-const Cartwidget = () => {
+const CartWidget = ({ itemCount }) => {
   return (
-    <div>Cartwidget</div>
-  )
-}
+    <div>
+      <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+      {itemCount > 0 && (
+        <Badge pill bg="danger" className="cart-badge">
+          {itemCount}
+        </Badge>
+      )}
+    </div>
+  );
+};
 
-export default Cartwidget
+export default CartWidget;

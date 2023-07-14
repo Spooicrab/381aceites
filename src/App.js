@@ -4,14 +4,17 @@ import "./App.css";
 import NavbarAceites from "./Components/Navbar/Navbar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Components/logo.png";
-import ItemListContainer from "./Components/ItemListContainer/ItemListContainerPage";
+import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
+import Homepage from "./Pages/HomePage/Homepage";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <NavbarAceites />
-      <ItemListContainer />
-    </div>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;

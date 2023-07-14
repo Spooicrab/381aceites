@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "../logo.png";
+import logo from "../logo.png";
 import CartWidget from "../CartWidget/Cartwidget";
 
 function NavbarAceites() {
@@ -10,7 +10,13 @@ function NavbarAceites() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">
-          <img src="./logo.png" alt="logo aceites" />
+          <img
+            src={logo}
+            alt="logo aceites"
+            style={{
+              height: "30px",
+            }}
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

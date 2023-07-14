@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import Cards from "./Components/ItemList/ItemList";
 import NavbarAceites from "./Components/Navbar/Navbar.js";
@@ -17,16 +18,23 @@ function App() {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
-        // console.log(doc.id, " => ", doc.data());
       });
+      console.log(docs);
+      setProductos(docs);
     };
     getProductos();
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <NavbarAceites />
-      <Cards />
+      {Productos.map((Productos) => {
+        return (
+          <div key={Productos.id}>
+            <Cards data={Productos} />
+          </div>
+        );
+      })}
     </div>
   );
 }

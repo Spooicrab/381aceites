@@ -5,7 +5,6 @@ import { collection, getDocs, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Cards from "../ItemList/ItemList";
 
-
 const ItemListContainer = () => {
   const [Productos, setProductos] = useState([]);
   useEffect(() => {
@@ -23,7 +22,7 @@ const ItemListContainer = () => {
   }, []);
 
   return (
-    <div className="Grilla">
+    <div className="ProductosG">
       {Productos.map((Productos) => {
         return (
           <div key={Productos.id}>

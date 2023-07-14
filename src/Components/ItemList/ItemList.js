@@ -1,17 +1,18 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-function Cards() {
+function Cards({ data }) {
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+      <Card.Img
+        variant="top"
+        src={data.url}
+        style={{ width: "100%", height: "350px" }}
+      />
+      <Card.Body style={{ backgroundColor: "#554348", fontSize:"17px" }}>
+        <Card.Title>{data.nombre}</Card.Title>
+        <Card.Text>{data.marca}</Card.Text>
+        <Button variant="primary">Ver más</Button>
       </Card.Body>
     </Card>
   );

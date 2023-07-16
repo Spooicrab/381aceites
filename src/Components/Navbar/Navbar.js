@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../logo.png";
 import CartWidget from "../CartWidget/Cartwidget";
+import { Link } from "react-router-dom";
 
 function NavbarAceites() {
   return (
@@ -21,17 +22,31 @@ function NavbarAceites() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+            <Link to="/">
+              <Nav.Link> Contactanos </Nav.Link>
+            </Link>
+            <NavDropdown title="Marcas" id="basic-nav-dropdown">
+              <Link to="/Categorias">
+                <NavDropdown.Item>Motul</NavDropdown.Item>
+              </Link>
+              <Link to="/Categorias">
+                <NavDropdown.Item>Total</NavDropdown.Item>
+              </Link>
+              <Link to="/Categorias">
+                <NavDropdown.Item>Elaion</NavDropdown.Item>
+              </Link>
+              <Link to="/Categorias">
+                <NavDropdown.Item>Gulf</NavDropdown.Item>
+              </Link>
+              <Link to="/Categorias">
+                <NavDropdown.Item>Valvoline</NavDropdown.Item>
+              </Link>
+              <Link to="/Categorias">
+                <NavDropdown.Item>Shell</NavDropdown.Item>
+              </Link>
+              <Link to="/Categorias">
+                <NavDropdown.Item>Castrol</NavDropdown.Item>
+              </Link>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

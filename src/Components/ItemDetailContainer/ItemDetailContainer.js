@@ -3,7 +3,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+// Archivo CSS para los estilos personalizados
+
 import "./ItemDetailContainer.css"; // Archivo CSS para los estilos personalizados
+import ItemCount from "../AddItemButton/AddItemButton";
 const ItemDetailContainer = ({ data }) => {
   return (
     <Container fluid className="item-detail-container">
@@ -16,6 +19,8 @@ const ItemDetailContainer = ({ data }) => {
           <h1 className="item-name">{data.nombre}</h1>
           <h2 className="item-price">AR$ {data.precio}</h2>
           <p className="item-description">{data.descripcion}</p>
+
+          <ItemCount />
         </Col>
       </Row>
     </Container>

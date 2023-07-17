@@ -38,6 +38,7 @@ const DetailPage = () => {
           <div key={Producto.id}>
             {/* <Cards data={data} /> */}
             <ItemDetailContainer data={Producto} />
+            
           </div>
         );
       })}

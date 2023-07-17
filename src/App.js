@@ -8,18 +8,21 @@ import DetailPage from "./Pages/DetailPage/DetailPage";
 import ShopPage from "./Pages/Shoppage/ShopPage";
 import Contacto from "./Pages/ContactPage/ContactPage";
 import Marcas from "./Pages/Category/Category";
+import { ProductosContext } from "./context/Context.js";
 
 function App() {
   return (
     <BrowserRouter>
-      <NavbarAceites />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/Marcas/:Marcas" element={<Marcas />} />
-        <Route path="/Checkout" element={<ShopPage />} />
-        <Route path="/Detalle/:id" element={<DetailPage />} />
-        <Route path="/Contacto" element={<Contacto />} />
-      </Routes>
+      <ProductosContext>
+        <NavbarAceites />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/Marcas/:Marcas" element={<Marcas />} />
+          <Route path="/Checkout" element={<ShopPage />} />
+          <Route path="/Detalle/:id" element={<DetailPage />} />
+          <Route path="/Contacto" element={<Contacto />} />
+        </Routes>
+      </ProductosContext>
     </BrowserRouter>
   );
 }

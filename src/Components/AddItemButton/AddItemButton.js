@@ -13,6 +13,9 @@ const ItemCount = ({ cantidad }) => {
     setCount(count + 1);
   };
 
+  const addToCart = () => {
+    console.log("agregado!");
+  };
   return (
     <div className="item-count">
       <Button variant="primary" className="count-button" onClick={restar}>
@@ -21,6 +24,10 @@ const ItemCount = ({ cantidad }) => {
       <p>{count}</p>
       <Button variant="primary" className="count-button" onClick={sumar}>
         +
+      </Button>
+
+      <Button variant="success" onClick={addToCart}>
+        Añadir al carrito
       </Button>
     </div>
   );

@@ -13,7 +13,7 @@ function Cards({ data }) {
       <Card.Body style={{ backgroundColor: "#554348", fontSize: "17px" }}>
         <Card.Title>{data.nombre}</Card.Title>
         <Card.Text>{data.marca}</Card.Text>
-        <Link to={`/Detalle/${data.id}`}>
+        <Link to={`/Detalle/${data.id}`} style={{ textDecoration: "none" }}>
           <Button variant="primary">Ver más</Button>
         </Link>
       </Card.Body>

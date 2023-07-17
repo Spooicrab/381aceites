@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import Formulario from "../../Components/Formulario/Formulario";
 
 const ShopPage = () => {
-  return (
-    <div>ShopPage</div>
-  )
-}
+  return <Formulario />;
+};
 
-export default ShopPage
+export default ShopPage;

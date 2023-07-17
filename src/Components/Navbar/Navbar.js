@@ -1,10 +1,7 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import logo from "../logo.png";
-import CartWidget from "../CartWidget/Cartwidget";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CartWidget from "../CartWidget/Cartwidget";
+import logo from "../logo.png";
 
 function NavbarAceites() {
   return (
@@ -22,30 +19,30 @@ function NavbarAceites() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/">
-              <Nav> Inicio </Nav>
+            <Link to="/" className="nav-link">
+              Inicio
             </Link>
             <NavDropdown title="Marcas" id="basic-nav-dropdown">
-              <Link to="/Categorias">
-                <NavDropdown.Item>Motul</NavDropdown.Item>
+              <Link to="/Marcas/Motul" className="dropdown-item">
+                Motul
               </Link>
-              <Link to="/Categorias">
-                <NavDropdown.Item>Total</NavDropdown.Item>
+              <Link to="/Marcas/Total" className="dropdown-item">
+                Total
               </Link>
-              <Link to="/Categorias">
-                <NavDropdown.Item>Elaion</NavDropdown.Item>
+              <Link to="/Marcas/Elaion" className="dropdown-item">
+                Elaion
               </Link>
-              <Link to="/Categorias">
-                <NavDropdown.Item>Gulf</NavDropdown.Item>
+              <Link to="/Marcas/Gulf" className="dropdown-item">
+                Gulf
               </Link>
-              <Link to="/Categorias">
-                <NavDropdown.Item>Valvoline</NavDropdown.Item>
+              <Link to="/Marcas/Valvoline" className="dropdown-item">
+                Valvoline
               </Link>
-              <Link to="/Categorias">
-                <NavDropdown.Item>Shell</NavDropdown.Item>
+              <Link to="/Marcas/Shell" className="dropdown-item">
+                Shell
               </Link>
-              <Link to="/Categorias">
-                <NavDropdown.Item>Castrol</NavDropdown.Item>
+              <Link to="/Marcas/Castrol" className="dropdown-item">
+                Castrol
               </Link>
             </NavDropdown>
           </Nav>
@@ -55,5 +52,4 @@ function NavbarAceites() {
     </Navbar>
   );
 }
-
 export default NavbarAceites;

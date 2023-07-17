@@ -1,9 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import NavbarAceites from "./Components/Navbar/Navbar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Components/logo.png";
+import "./App.css";
 import Homepage from "./Pages/HomePage/Homepage";
 import DetailPage from "./Pages/DetailPage/DetailPage";
 import ShopPage from "./Pages/Shoppage/ShopPage";
@@ -24,4 +23,5 @@ function App() {
     </BrowserRouter>
   );
 }
+
 export default App;

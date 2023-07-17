@@ -9,7 +9,8 @@ import {
   documentId,
 } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-import Cards from "../../Components/ItemList/ItemList";
+// import Cards from "../../Components/ItemList/ItemList";
+import ItemDetailContainer from "../../Components/ItemDetailContainer/ItemDetailContainer";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -32,10 +33,11 @@ const DetailPage = () => {
 
   return (
     <div className="DetailContainer">
-      {Producto.map((data) => {
+      {Producto.map((Producto) => {
         return (
-          <div key={data.id}>
-            <Cards data={data} />
+          <div key={Producto.id}>
+            {/* <Cards data={data} /> */}
+            <ItemDetailContainer data={Producto} />
           </div>
         );
       })}

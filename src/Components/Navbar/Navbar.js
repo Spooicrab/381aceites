@@ -10,7 +10,7 @@ function NavbarAceites() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand>
           <img
             src={logo}
             alt="logo aceites"
@@ -23,7 +23,7 @@ function NavbarAceites() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to="/">
-              <Nav.Link> Contactanos </Nav.Link>
+              <Nav> Inicio </Nav>
             </Link>
             <NavDropdown title="Marcas" id="basic-nav-dropdown">
               <Link to="/Categorias">

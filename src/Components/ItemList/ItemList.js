@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 function Cards({ data }) {
   return (
@@ -12,7 +13,9 @@ function Cards({ data }) {
       <Card.Body style={{ backgroundColor: "#554348", fontSize: "17px" }}>
         <Card.Title>{data.nombre}</Card.Title>
         <Card.Text>{data.marca}</Card.Text>
-        <Button variant="primary">Ver más</Button>
+        <Link to={`/Detalle/${data.id}`}>
+          <Button variant="primary">Ver más</Button>
+        </Link>
       </Card.Body>
     </Card>
   );

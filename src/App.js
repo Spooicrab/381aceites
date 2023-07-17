@@ -8,6 +8,7 @@ import Homepage from "./Pages/HomePage/Homepage";
 import Category from "./Pages/Category/Category";
 import DetailPage from "./Pages/DetailPage/DetailPage";
 import ShopPage from "./Pages/Shoppage/ShopPage";
+import Contacto from "./Pages/ContactPage/ContactPage";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/Categorias" element={<Category />} />
         <Route path="/Checkout" element={<ShopPage />} />
-        <Route path="/Detalle" element={<DetailPage />} />
+        <Route path="/Detalle/:id" element={<DetailPage />} />
+        <Route path="/Contacto" element={<Contacto />} />
       </Routes>
     </BrowserRouter>
   );

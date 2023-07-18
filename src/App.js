@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavbarAceites from "./Components/Navbar/Navbar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+
+import NavbarAceites from "./Components/Navbar/Navbar.js";
+
 import Homepage from "./Pages/HomePage/Homepage";
 import DetailPage from "./Pages/DetailPage/DetailPage";
 import ShopPage from "./Pages/Shoppage/ShopPage";
-import Contacto from "./Pages/ContactPage/ContactPage";
 import Marcas from "./Pages/Category/Category";
+
 import { Provider } from "./context/Context.js";
 
 function App() {
@@ -19,7 +21,6 @@ function App() {
           <Route path="/Marcas/:Marcas" element={<Marcas />} />
           <Route path="/Checkout" element={<ShopPage />} />
           <Route path="/Detalle/:id" element={<DetailPage />} />
-          <Route path="/Contacto" element={<Contacto />} />
         </Routes>
       </BrowserRouter>
     </Provider>

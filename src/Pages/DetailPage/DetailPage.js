@@ -37,7 +37,7 @@ const DetailPage = () => {
         return (
           <div key={Producto.id}>
             {/* <Cards data={data} /> */}
-            <ItemDetailContainer data={Producto} />
+            <ItemDetailContainer item={Producto} />
             
           </div>
         );

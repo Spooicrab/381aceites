@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavbarAceites from "./Components/Navbar/Navbar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,9 +11,39 @@ import Marcas from "./Pages/Category/Category";
 import { ProductosContext } from "./context/Context.js";
 
 function App() {
+
+  const [carrito, setCarrito] = useState([])
+
+  const agregarAlCarrito = (item, cantidad) => {
+    const itemAgregado = {...item, cantidad}
+    const nuevoCarrito = [...carrito]
+    const estaEnElCarrito = nuevoCarrito.find((producto) => producto.id === itemAgregado.id);
+
+    // console.log(itemAgregado)
+    if(estaEnElCarrito){
+      estaEnElCarrito.cantidad += cantidad
+    }else{
+      nuevoCarrito.push(itemAgregado)
+    }
+    setCarrito(nuevoCarrito)
+    console.log(carrito)
+  }
+
+  const cantidadEnCarrito = () => {
+    return carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
+  }
+
+  const precioTotal = () => {
+    return carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
+  }
+
+  const vaciarCarrito = () => {
+    setCarrito([])
+  }
+
   return (
     <BrowserRouter>
-      <ProductosContext>
+      <ProductosContext.Provider value={{carrito, agregarAlCarrito, cantidadEnCarrito, precioTotal, vaciarCarrito}}>
         <NavbarAceites />
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -22,7 +52,7 @@ function App() {
           <Route path="/Detalle/:id" element={<DetailPage />} />
           <Route path="/Contacto" element={<Contacto />} />
         </Routes>
-      </ProductosContext>
+      </ProductosContext.Provider>
     </BrowserRouter>
   );
 }

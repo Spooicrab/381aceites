@@ -2,8 +2,14 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/Cartwidget";
 import logo from "../logo.png";
+import { useContext } from "react";
+import { ProductosContext } from "../../context/Context";
 
 function NavbarAceites() {
+
+ const {cantidadEnCarrito} = useContext(ProductosContext)
+
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -48,7 +54,7 @@ function NavbarAceites() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <CartWidget />
+      <CartWidget itemCount={cantidadEnCarrito}/>
     </Navbar>
   );
 }

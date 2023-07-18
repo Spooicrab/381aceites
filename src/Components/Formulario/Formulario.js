@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductosContext } from "../../context/Context";
+
 import "./Formulario.css";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -21,9 +23,16 @@ const validationSchema = Yup.object().shape({
 });
 
 const Formulario = () => {
+  const { carrito } = useContext(ProductosContext);
+
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      const docRef = await addDoc(collection(db, "Pedidos"), values);
+      const pedido = {
+        datos: { values },
+        carrito: carrito,
+      };
+
+      const docRef = await addDoc(collection(db, "Pedidos"), pedido);
       console.log("Document written with ID: ", docRef.id);
       resetForm();
     } catch (error) {

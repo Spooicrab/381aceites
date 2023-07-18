@@ -1,11 +1,32 @@
 import React, { useContext } from "react";
 
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
+
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 import { ProductosContext } from "../../context/Context";
 import Formulario from "../../Components/Formulario/Formulario";
 
 const ShopPage = () => {
+  //
+  const enviarDatos = async (datosFormulario) => {
+    // Guardar los datos del formulario en Firebase
+    const docRef = await addDoc(
+      collection(db, "DatosFormulario"),
+      datosFormulario
+    );
+    console.log("Documento guardado con el ID: ", docRef.id);
+
+    // Guardar los datos del carrito en Firebase
+    const carritoRef = await addDoc(collection(db, "Carrito"), carrito);
+    console.log("Carrito guardado con el ID: ", carritoRef.id);
+
+    // Vaciar el carrito después de guardar los datos
+    vaciarCarrito();
+  };
+  //
+
   const { carrito, precioTotal, vaciarCarrito } = useContext(ProductosContext);
   const handleVaciar = () => {
     vaciarCarrito();
@@ -52,7 +73,7 @@ const ShopPage = () => {
           vaciar carrito
         </Button>
       </div>
-      <Formulario />
+      <Formulario enviarDatos={enviarDatos} />
     </Container>
   );
 };

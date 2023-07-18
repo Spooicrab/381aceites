@@ -10,15 +10,10 @@ import Formulario from "../../Components/Formulario/Formulario";
 
 const ShopPage = () => {
   //
+
   const enviarDatos = async (datosFormulario) => {
     // Guardar los datos del formulario en Firebase
-    const docRef = await addDoc(
-      collection(db, "DatosFormulario"),
-      datosFormulario
-    );
-    console.log("Documento guardado con el ID: ", docRef.id);
 
-    // Guardar los datos del carrito en Firebase
     const carritoRef = await addDoc(collection(db, "Carrito"), carrito);
     console.log("Carrito guardado con el ID: ", carritoRef.id);
 
@@ -72,6 +67,11 @@ const ShopPage = () => {
         <Button style={{ marginTop: "2em" }} onClick={handleVaciar}>
           vaciar carrito
         </Button>
+        <Container>
+          <div className="text-center">
+            <h2 style={{ marginTop: "40px" }}>CONCRETAR COMPRA</h2>
+          </div>
+        </Container>
       </div>
       <Formulario enviarDatos={enviarDatos} />
     </Container>

@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+
 import { ProductosContext } from "../../context/Context";
 
 import "./Formulario.css";
@@ -24,16 +25,18 @@ const validationSchema = Yup.object().shape({
 
 const Formulario = () => {
   const { carrito } = useContext(ProductosContext);
+  const [purchaseID, setPurchaseID] = useState(null);
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const pedido = {
         datos: { values },
-        carrito: carrito,
+        carrito: { carrito },
       };
 
       const docRef = await addDoc(collection(db, "Pedidos"), pedido);
       console.log("Document written with ID: ", docRef.id);
+      setPurchaseID(docRef.id);
       resetForm();
     } catch (error) {
       console.error("Error adding document: ", error);
@@ -110,6 +113,12 @@ const Formulario = () => {
         <Button variant="primary" type="submit">
           Enviar
         </Button>
+
+        {purchaseID && (
+          <div className="purchase-id">
+            <p>ID de compra: {purchaseID}</p>
+          </div>
+        )}
       </Form>
     </Formik>
   );

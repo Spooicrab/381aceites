@@ -1,42 +1,57 @@
 import React, { useContext } from "react";
 import Formulario from "../../Components/Formulario/Formulario";
 import { ProductosContext } from "../../context/Context";
-
+import { Container, Row, Col, Button } from "react-bootstrap";
 const ShopPage = () => {
- 
-  const { carrito, precioTotal, vaciarCarrito } = useContext(ProductosContext)
-
+  const { carrito, precioTotal, vaciarCarrito } = useContext(ProductosContext);
   const handleVaciar = () => {
-    vaciarCarrito()
-  }
-
+    vaciarCarrito();
+  };
   return (
-    <>
-    <div style={{padding: '2em'}}>
-      <h1>CARRITO DE COMPRAS</h1>
-      <br/>
-      {
-        carrito.map((item) => (
-         <div>
-          <h3>nombre:  <b>{item.nombre}</b></h3>
-          <h5>marca:  <b>{item.marca}</b></h5>
-          <h5>cantidad:  <b>{item.cantidad}</b></h5>
-          <h5>precio:  <b>{item.precio}</b></h5>
-          <br/>
-         </div>
-        ))
-      }
-      <h2><b>TOTAL: </b> ${precioTotal()} </h2>
-
-      <button style={{marginTop:'2em'}} onClick={handleVaciar}>vaciar carrito</button>
-    </div>
-
-
-     <Formulario />
-
-    </>
-  
-  )
+    <Container>
+      <div style={{ padding: "2em" }}>
+        <h1>CARRITO DE COMPRAS</h1>
+        <br />
+        {carrito.map((item) => (
+          <Row key={item.id} style={{marginTop:"20px"}}>
+            <Col xs={6} md={4}>
+              <img src={item.url} alt="img" style={{height:"150px"}}></img>
+            </Col>
+            <Col xs={6} md={8}>
+              <Row>
+                <h3>
+                  nombre: <b>{item.nombre}</b>
+                </h3>
+              </Row>
+              <Row>
+                <h5>
+                  marca: <b>{item.marca}</b>
+                </h5>
+              </Row>
+              <Row>
+                <h5>
+                  cantidad: <b>{item.cantidad}</b>
+                </h5>
+              </Row>
+              <Row>
+                <h5>
+                  precio: <b>{item.precio}</b>
+                </h5>
+              </Row>
+              <br />
+            </Col>
+          
+          </Row>
+        ))}
+        <h2>
+          <b>TOTAL: </b> ${precioTotal()}{" "}
+        </h2>
+        <Button style={{ marginTop: "2em" }} onClick={handleVaciar}>
+          vaciar carrito
+        </Button>
+      </div>
+      <Formulario />
+    </Container>
+  );
 };
-
 export default ShopPage;

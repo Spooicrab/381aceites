@@ -6,9 +6,7 @@ import { useContext } from "react";
 import { ProductosContext } from "../../context/Context";
 
 function NavbarAceites() {
-
- const {cantidadEnCarrito} = useContext(ProductosContext)
-
+  const { cantidadEnCarrito } = useContext(ProductosContext);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -54,7 +52,7 @@ function NavbarAceites() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <CartWidget itemCount={cantidadEnCarrito}/>
+      <CartWidget itemCount={cantidadEnCarrito} />
     </Navbar>
   );
 }

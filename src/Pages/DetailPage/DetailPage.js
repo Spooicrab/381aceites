@@ -36,9 +36,7 @@ const DetailPage = () => {
       {Producto.map((Producto) => {
         return (
           <div key={Producto.id}>
-            {/* <Cards data={data} /> */}
             <ItemDetailContainer item={Producto} />
-            
           </div>
         );
       })}

@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
+import "./ItemDetailContainer.css";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-// Archivo CSS para los estilos personalizados
 
-import "./ItemDetailContainer.css"; // Archivo CSS para los estilos personalizados
 import ItemCount from "../AddItemButton/AddItemButton";
 import { ProductosContext } from "../../context/Context";
 
@@ -15,7 +15,6 @@ const ItemDetailContainer = ({ item }) => {
 
   const [cantidad, setCantidad] = useState(1);
 
-  // console.log('itemAA', item)
   const handleRestar = () => {
     cantidad > 1 && setCantidad(cantidad - 1);
   };

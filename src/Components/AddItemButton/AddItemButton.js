@@ -1,9 +1,8 @@
-// import React, { useContext, useState } from "react";
+import "./AddItemButton.css";
 import React, { useContext } from "react";
 
 import Button from "react-bootstrap/Button";
-import "./AddItemButton.css";
-// import { ProductosContext } from "../../context/Context";
+
 import { ProductosContext } from "../../context/Context";
 
 //

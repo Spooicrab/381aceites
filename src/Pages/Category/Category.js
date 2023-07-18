@@ -1,10 +1,13 @@
 import React from "react";
+import "../../Components/ItemListContainer/ItemListContainer.css";
+
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import { db } from "../../firebase/firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { useEffect, useState } from "react";
+
 import Cards from "../../Components/ItemList/ItemList";
-import { useParams } from "react-router-dom";
-import "../../Components/ItemListContainer/ItemListContainer.css";
 
 const Marcas = () => {
   const { Marcas } = useParams();

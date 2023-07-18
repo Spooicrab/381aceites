@@ -1,10 +1,12 @@
 import React from "react";
+import "./Formulario.css";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Button, Form as BootstrapForm } from "react-bootstrap";
+
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-import "./Formulario.css";
 
 const validationSchema = Yup.object().shape({
   nombre: Yup.string().required("El nombre es obligatorio"),

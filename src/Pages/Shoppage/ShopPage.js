@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
-import Formulario from "../../Components/Formulario/Formulario";
-import { ProductosContext } from "../../context/Context";
+
 import { Container, Row, Col, Button } from "react-bootstrap";
+
+import { ProductosContext } from "../../context/Context";
+import Formulario from "../../Components/Formulario/Formulario";
+
 const ShopPage = () => {
   const { carrito, precioTotal, vaciarCarrito } = useContext(ProductosContext);
   const handleVaciar = () => {
@@ -13,9 +16,9 @@ const ShopPage = () => {
         <h1>CARRITO DE COMPRAS</h1>
         <br />
         {carrito.map((item) => (
-          <Row key={item.id} style={{marginTop:"20px"}}>
+          <Row key={item.id} style={{ marginTop: "20px" }}>
             <Col xs={6} md={4}>
-              <img src={item.url} alt="img" style={{height:"150px"}}></img>
+              <img src={item.url} alt="img" style={{ height: "150px" }}></img>
             </Col>
             <Col xs={6} md={8}>
               <Row>
@@ -40,7 +43,6 @@ const ShopPage = () => {
               </Row>
               <br />
             </Col>
-          
           </Row>
         ))}
         <h2>
